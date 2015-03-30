@@ -1,5 +1,5 @@
 <?php 
-include_once 'usersconfig.php';
+include_once 'universitiesconfig.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,12 +29,12 @@ function ConfirmDelete(){
 </head>
 <body>
 	
-	<div id="users" data-role="page" data-title="YUG: Users Console">
+	<div id="universities" data-role="page" data-title="YUG: Universities Console">
     	<div data-role="header" data-position="fixed" data-id="header">
-        	<h1>Users Console</h1>
+        	<h1>Universities Console</h1>
             <a href="admin.php" data-role="button" data-ajax="false" data-iconpos="notext" data-icon="star">Admin</a>
         </div><!--admin header-->
-		<h2 class="head1" align="center">Users Table</h2>
+		<h2 class="head1" align="center">Universities Table</h2>
 		
 
 		<div data-role="main" class="ui-content" >
@@ -43,40 +43,44 @@ function ConfirmDelete(){
 				<thead>
 					<tr>
 						<th>Name</td>
-						<th data-priority="1">Username</th>
-						<th data-priority="2">Email</th>
-						<th data-priority="3">Password</th>
+						<th data-priority="1">Address</th>
+						<th data-priority="2">Contact</th>
+						<th data-priority="3">Desc.</th>
+                        <th data-priority="4">Href</th>
 						<th>Edit</th><th>Delete</th>
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach($users_list as $user) : ?>
+					<?php foreach($universities_list as $university) : ?>
 						<tr>
 							<td>
-								<?php echo $user["name"]; ?>
+								<?php echo $university["name"]; ?>
 							</td>
 							<td>
-								<?php echo $user["username"]; ?>
+								<?php echo $university["address"]; ?>
 							</td>
 							<td>
-								<?php echo $user["email"]; ?>
+								<?php echo $university["contact"]; ?>
 							</td>
 							<td>
-								<?php echo $user["password"]; ?>
+								<?php echo $university["de"]; ?>
+							</td>
+                            <td>
+								<?php echo $university["href"]; ?>
 							</td>
 							<td>
-								<form method="post" action="usersconfig.php">
+								<form method="post" action="universitiesconfig.php">
 									<input type="hidden" name="ci" 
-									value="<?php echo $user["id"]; ?>" />
+									value="<?php echo $university["id"]; ?>" />
 									<input type="hidden" name="action" value="edit" />
 									<input data-ajax="false" type="submit" value="Edit" />
 								</form> 
 							</td>
 							<td>
-								<form method="POST" action="usersconfig.php" 
+								<form method="POST" action="universitiesconfig.php" 
 								onSubmit="return ConfirmDelete();">
 									<input type="hidden" name="ci" 
-									value="<?php echo $user["id"]; ?>" />
+									value="<?php echo $university["id"]; ?>" />
 									<input type="hidden" name="action" value="delete" />
 									<input type="submit" value="Delete" />
 								</form>
@@ -85,7 +89,7 @@ function ConfirmDelete(){
 					<?php endforeach; ?>
 				</tbody>
 			</table><br/>
-			<a href="addusers.php" data-ajax="false" class="link-btn">Add User</a>
+			<a href="adduniversities.php" data-ajax="false" class="link-btn">Add University</a>
 		</div>
 			<div data-role="footer" data-position="fixed" data-id="footer">
         	<div data-role="navbar">

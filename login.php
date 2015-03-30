@@ -50,10 +50,21 @@
         	<div data-role="navbar">
             	<ul>
                     <li><a href="index.php" data-ajax="false" data-role="button" data-icon="home" data-mini="true">Home</a></li>
-                    <li><a href="index.php#about" data-ajax="true" data-rel="dialog" data-role="button" data-icon="info" data-mini="true">About</a></li>
+                    <li><a href="#about" data-rel="dialog" data-role="button" data-icon="info" data-mini="true">About</a></li>
                 </ul>
             </div><!--footer navbar-->
         </div><!--footer buttons-->
     </div><!--login page-->
+     <!--about page-->
+    <div id="about" data-role="page" data-title="YUG: About">
+    	<div data-role="header" data-id="header">
+        	<h1>About</h1>
+        </div><!--about header-->
+        <div data-role="content">
+        	<h2 align="center">Developers</h2>
+            <p>kjhsk jvhsdavsdh fkjhabs dvybvoasdhb vhdsbvh jsadbv</p>
+        </div>
+        
+    </div><!--about page-->
 </body>
 </html>

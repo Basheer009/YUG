@@ -32,7 +32,7 @@ function ConfirmDelete(){
 	<div id="users" data-role="page" data-title="YUG: Cities Console">
     	<div data-role="header" data-position="fixed" data-id="header">
         	<h1>Cities Console</h1>
-            <a href="admin.php" data-role="button" data-iconpos="notext" data-icon="star">Admin</a>
+            <a href="admin.php" data-role="button" data-ajax="false" data-iconpos="notext" data-icon="star">Admin</a>
         </div><!--admin header-->
 		<h2 class="head1" align="center">Cities Table</h2>
 		
@@ -83,10 +83,21 @@ function ConfirmDelete(){
         	<div data-role="navbar">
             	<ul>
                     <li><a id="logout" href="admin.php?q=logout" data-role="button" data-icon="alert" data-mini="true">Logout</a></li>
-                    <li><a href="index.php#about" data-role="button" data-rel="dialog" data-ajax="false" data-icon="info" data-mini="true">About</a></li>
+                    <li><a href="#about" data-role="button" data-rel="dialog" data-icon="info" data-mini="true">About</a></li>
                 </ul>
             </div><!--footer navbar-->
         </div><!--footer buttons-->
 		</div>
+         <!--about page-->
+    <div id="about" data-role="page" data-title="YUG: About">
+    	<div data-role="header" data-id="header">
+        	<h1>About</h1>
+        </div><!--about header-->
+        <div data-role="content">
+        	<h2 align="center">Developers</h2>
+            <p>kjhsk jvhsdavsdh fkjhabs dvybvoasdhb vhdsbvh jsadbv</p>
+        </div>
+        
+    </div><!--about page-->
 </body>
 </html>
