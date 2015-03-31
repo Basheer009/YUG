@@ -1,8 +1,5 @@
-
 <?php
-session_start();
 include '/include/config.php';
-$id = $_SESSION['id'];
 //Insert or  contact information
 if(isset($_POST['action_type']))
 {
@@ -10,7 +7,8 @@ if(isset($_POST['action_type']))
     {
         $id = mysqli_real_escape_string($link, strip_tags($_POST['id']));
         $name = mysqli_real_escape_string($link, strip_tags($_POST['name']));
-        $href = mysqli_real_escape_string($link, strip_tags($_POST['href']));
+		$href = mysqli_real_escape_string($link, strip_tags($_POST['href']));
+		$idname = mysqli_real_escape_string($link, strip_tags($_POST['idname']));
 
 
                  
@@ -18,11 +16,13 @@ if(isset($_POST['action_type']))
         {
             $sql = "insert into cities set
                     name = '$name',
-                    href = '$href'";
+					href = '$href',
+					idname = '$idname'";
         }else{
             $sql = "update cities set
                     name = '$name',
-                    href = '$href'',
+					href = '$href',
+					idname = '$idname'
                     where id = '$id'";
         }
          
@@ -38,7 +38,7 @@ if(isset($_POST['action_type']))
 $gresult = ''; //declare global variable
 if(isset($_POST["action"]) and $_POST["action"]=="edit"){
     $id = (isset($_POST["ci"])? $_POST["ci"] : '');
-    $sql = "select id, name, href
+    $sql = "select id, name, href, idname
             from cities
             where id = '$id'";
  
@@ -75,7 +75,7 @@ if(isset($_POST["action"]) and $_POST["action"]=="delete"){
 //End Delete Contact
 
 //Read contact information from database
-$sql = "select id, name , href from cities";
+$sql = "select id, name , href, idname from cities";
  
 $result = mysqli_query($link, $sql);
  
@@ -89,7 +89,8 @@ while($rows = mysqli_fetch_array($result))
 {
     $cities_list[] = array('id' => $rows['id'], 
                             'name' => $rows['name'],
-                            'href' => $rows['href']);
+							'href' => $rows['href'],
+							'idname' => $rows['idname']);
 }
 include 'citieslist.php';
 exit();

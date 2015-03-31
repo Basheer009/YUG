@@ -21,7 +21,7 @@
 			
 			<br/>
 			<div>
-			<form id="frmContact" method="POST" action="universitiesconfig.php" 		
+			<form id="frmContact" method="POST" data-ajax="false" action="universitiesconfig.php" 		
 					>
 				<input type="hidden" name="id" 
 				value="<?php echo (isset($gresult) ? $gresult["id"] :  ''); ?>" />
@@ -58,30 +58,38 @@
 					</tr>
 					<tr>
 						<td>
-							<label for="de">Desc.: </label>
+							<label for="de">Desc: </label>
 						</td>
 						<td>
-							<input type="text" name="de" 
-							value="<?php echo (isset($gresult) ? $gresult["de"] :  ''); ?>" 
-							class="txt-fld"/>
+							<textarea rows="5" type="text" name="de" 
+							 id="de" class="txt-fld" ><?php echo (isset($gresult) ? $gresult["de"] :  ''); ?></textarea>
 						</td>
-					</tr>
-                    <tr>
+					</tr>				
+					<tr>
 						<td>
 							<label for="href">Href: </label>
 						</td>
 						<td>
 							<input type="text" name="href" 
 							value="<?php echo (isset($gresult) ? $gresult["href"] :  ''); ?>" 
-							class="txt-fld"/>
+							 id="href" class="txt-fld"/>
 						</td>
 					</tr>				
-					
+					<tr>
+						<td>
+							<label for="cityname">City Name: </label>
+						</td>
+						<td>
+							<input type="text" name="cityname" 
+							value="<?php echo (isset($gresult) ? $gresult["cityname"] :  ''); ?>" 
+							 id="cityname" class="txt-fld"/>
+						</td>
+					</tr>
 				</table>
 				<input type="hidden" name="action_type" value="<?php echo (isset($gresult) ? 'edit' :  'add');?>"/>
 				<div style="text-align: center; padding-top: 30px;">
 					<input class="btn" type="submit" name="save" id="save" value="Save" />
-					<input data-ajax="false" onClick="document.location.href='universitieslist.php'" class="btn" type="button" name="cancel"  id="cancel" value="Cancel" />
+					<input data-ajax="false" onClick="document.location.href='Universitiesconfig.php'" class="btn" type="button" name="cancel"  id="cancel" value="Cancel" />
 				</div>
 			</form>
 			</div>

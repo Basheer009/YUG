@@ -29,7 +29,7 @@ function ConfirmDelete(){
 </head>
 <body>
 	
-	<div id="users" data-role="page" data-title="YUG: Users Console">
+	<div id="universities" data-role="page" data-title="YUG: User Console">
     	<div data-role="header" data-position="fixed" data-id="header">
         	<h1>Users Console</h1>
             <a href="admin.php" data-role="button" data-ajax="false" data-iconpos="notext" data-icon="star">Admin</a>
@@ -37,46 +37,46 @@ function ConfirmDelete(){
 		<h2 class="head1" align="center">Users Table</h2>
 		
 
-		<div data-role="main" class="ui-content" >
+		<div data-role="main" data-mini="true" class="ui-content" >
 
-		<table data-role="table" class="ui-responsive" data-mode="columntoggle" id="myTable">
+		<table data-role="table" class="ui-responsive table-stroke" data-mode="columntoggle" id="myTable">
 				<thead>
 					<tr>
 						<th>Name</td>
-						<th data-priority="1">Username</th>
-						<th data-priority="2">Email</th>
-						<th data-priority="3">Password</th>
+                        <th data-priority="1">Username</th>
+                        <th data-priority="2">Email</th>
+                        <th data-priority="1">Password</th>
 						<th>Edit</th><th>Delete</th>
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach($users_list as $user) : ?>
+					<?php foreach($users_list as $row) : ?>
 						<tr>
 							<td>
-								<?php echo $user["name"]; ?>
+								<?php echo $row["name"]; ?>
 							</td>
-							<td>
-								<?php echo $user["username"]; ?>
+                            <td>
+								<?php echo $row["username"]; ?>
 							</td>
-							<td>
-								<?php echo $user["email"]; ?>
+                            <td>
+								<?php echo $row["email"]; ?>
 							</td>
-							<td>
-								<?php echo $user["password"]; ?>
+                            <td>
+								<?php echo $row["password"]; ?>
 							</td>
 							<td>
 								<form method="post" action="usersconfig.php">
 									<input type="hidden" name="ci" 
-									value="<?php echo $user["id"]; ?>" />
+									value="<?php echo $row["id"]; ?>" />
 									<input type="hidden" name="action" value="edit" />
-									<input data-ajax="false" type="submit" value="Edit" />
+									<input type="submit" value="Edit" />
 								</form> 
 							</td>
 							<td>
 								<form method="POST" action="usersconfig.php" 
 								onSubmit="return ConfirmDelete();">
 									<input type="hidden" name="ci" 
-									value="<?php echo $user["id"]; ?>" />
+									value="<?php echo $row["id"]; ?>" />
 									<input type="hidden" name="action" value="delete" />
 									<input type="submit" value="Delete" />
 								</form>
@@ -85,7 +85,8 @@ function ConfirmDelete(){
 					<?php endforeach; ?>
 				</tbody>
 			</table><br/>
-			<a href="addusers.php" data-ajax="false" class="link-btn">Add User</a>
+            <div align="left">
+			<a href="addusers.php" data-ajax="false">Add user</a></div>
 		</div>
 			<div data-role="footer" data-position="fixed" data-id="footer">
         	<div data-role="navbar">

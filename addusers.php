@@ -21,7 +21,7 @@
 			
 			<br/>
 			<div>
-			<form id="frmContact" method="POST" action="usersconfig.php" 		
+			<form id="frmContact" method="POST" data-ajax="false" action="usersconfig.php" 		
 					>
 				<input type="hidden" name="id" 
 				value="<?php echo (isset($gresult) ? $gresult["id"] :  ''); ?>" />
@@ -38,12 +38,12 @@
 					</tr>
 					<tr>
 						<td>
-							<label for="username">Username: </label>
+							<label for="username">Usernsme: </label>
 						</td>
 						<td>
 							<input type="text" name="username" 
 							value="<?php echo (isset($gresult) ? $gresult["username"] :  ''); ?>" 
-							id="lname" class="txt-fld"/>
+							 id="username" class="txt-fld"/>
 						</td>
 					</tr>
 					<tr>
@@ -53,7 +53,7 @@
 						<td>
 							<input type="text" name="email" 
 							value="<?php echo (isset($gresult) ? $gresult["email"] :  ''); ?>" 
-							class="txt-fld"/>
+							 id="email" class="txt-fld"/>
 						</td>
 					</tr>
 					<tr>
@@ -63,15 +63,14 @@
 						<td>
 							<input type="text" name="password" 
 							value="<?php echo (isset($gresult) ? $gresult["password"] :  ''); ?>" 
-							class="txt-fld"/>
+							 id="password" class="txt-fld"/>
 						</td>
-					</tr>				
-					
+					</tr>
 				</table>
 				<input type="hidden" name="action_type" value="<?php echo (isset($gresult) ? 'edit' :  'add');?>"/>
 				<div style="text-align: center; padding-top: 30px;">
 					<input class="btn" type="submit" name="save" id="save" value="Save" />
-					<input data-ajax="false" onClick="document.location.href='userslist.php'" class="btn" type="button" name="cancel"  id="cancel" value="Cancel" />
+					<input data-ajax="false" onClick="document.location.href='usersconfig.php'" class="btn" type="button" name="cancel"  id="cancel" value="Cancel" />
 				</div>
 			</form>
 			</div>

@@ -3,8 +3,8 @@
     include_once '/include/class_user.php';
 	include_once'/include/config.php';
 	
-	$sql = "SELECT name, href FROM cities ORDER BY id";
-	$sql1 = "SELECT name, address, contact, de, href FROM universities ORDER BY id ";
+	$sql = "SELECT name, href, idname FROM cities ORDER BY id";
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,20 +45,26 @@
             </div><!--footer navbar-->
         </div><!--footer buttons-->
     </div><!--home page-->
-    <!--sana'a page-->
-    <div id="sanaa" data-role="page" data-title="YUG: Sana'a">
+    <!--city page-->
+    <?php foreach($link->query($sql) as $o){?>
+    <div id="<?php $i = $o['idname']; echo $i?>" data-role="page" data-title="YUG: <?php echo $row['name']?>">
     	<div data-role="header" data-position="fixed" data-id="header">
-			<h1>Sana'a</h1>
+			<h1><?php echo $o['name']?></h1>
             <a href="#home" data-icon="home" data-ajax="false" data-iconpos="notext">Home</a>
-        </div><!--sana'a header-->
+        </div><!-- header-->
 		<div data-role="content">
         	<div class="row">
-            	<?php foreach($link->query($sql1) as $row){ ?>
+            	<?php
+				$sql1 = "SELECT * FROM universities WHERE cityname = '$i'";
+				 foreach($link->query($sql1) as $r){ ?>
                 <div class="col-md-4 thumbnail">
                     <img src="_/css/images/a.png" alt="<h1>LIU</h1>"/>
-                    <h2><?php echo $row['name'] ?></h2>
-                    <p><?php echo $row['address'] ?></p>
-                    <p><?php echo $row['contact'] ?></p>
+                    <div align="center">
+                    <h2><?php echo $r['name'] ?></h2>
+                    <h1><?php echo $r['address'] ?></h1>
+                    <h1><?php echo $r['contact'] ?></h1>
+                    <p><?php echo $r['de'] ?></p>
+                    </div>
                 </div><?php } ?>
             </div>   
         </div><!--content-->
@@ -70,55 +76,7 @@
                 </ul>
             </div><!--footer navbar-->
         </div><!--footer buttons-->
-    </div><!--sana'a page-->
-    <!--taiz page-->
-    <div id="taiz" data-role="page" data-title="YUG: Taiz">
-    	<div data-role="header" data-position="fixed" data-id="header">
-			<h1>Taiz</h1>
-        	<a href="#home" data-icon="home" data-ajax="false" data-iconpos="notext">Home</a>
-        </div><!--taiz header-->
-		<div data-role="content">the universities of Taiz city</div>
-        <div data-role="footer" data-position="fixed" data-id="footer">
-        	<div data-role="navbar">
-            	<ul>
-                    <li><a href="admin.php" data-ajax="false" data-role="button" data-icon="star" data-mini="true">Admin</a></li>
-                    <li><a href="#about" data-rel="dialog" data-role="button" data-icon="info" data-mini="true">About</a></li>
-                </ul>
-            </div><!--footer navbar-->
-        </div><!--footer buttons-->
-    </div><!--taiz page-->
-    <!--aden page-->
-    <div id="aden" data-role="page" data-title="YUG: Aden">
-    	<div data-role="header" data-position="fixed" data-id="header">
-			<h1>Aden</h1>
-        	<a href="#home" data-icon="home" data-ajax="false" data-iconpos="notext">Home</a>
-        </div><!--aden header-->
-		<div data-role="content">the universities of Aden city</div>
-        <div data-role="footer" data-position="fixed" data-id="footer">
-        	<div data-role="navbar">
-            	<ul>
-                    <li><a href="admin.php" data-ajax="false" data-role="button" data-icon="star" data-mini="true">Admin</a></li>
-                    <li><a href="#about" data-rel="dialog" data-role="button" data-icon="info" data-mini="true">About</a></li>
-                </ul>
-            </div><!--footer navbar-->
-        </div><!--footer buttons-->
-    </div><!--aden page-->
-    <!--hodaidah page-->
-    <div id="hodaidah" data-role="page" data-title="YUG: Hodaidah">
-    	<div data-role="header" data-position="fixed" data-id="header">
-			<h1>Hodaidah</h1>
-        	<a href="#home" data-icon="home" data-ajax="false" data-iconpos="notext">Home</a>
-        </div><!--hodaidah header-->
-		<div data-role="content">the universities of Hodaidah city</div>
-        <div data-role="footer" data-position="fixed" data-id="footer">
-        	<div data-role="navbar">
-            	<ul>
-                    <li><a href="admin.php" data-role="button" data-icon="star" data-mini="true">Admin</a></li>
-                    <li><a href="#about" data-rel="dialog" data-role="button" data-icon="info" data-mini="true">About</a></li>
-                </ul>
-            </div><!--footer navbar-->
-        </div><!--footer buttons-->
-    </div><!--hodaidah page-->
+    </div><!--sana'a page--><?php } ?>
     <!--about page-->
     <div id="about" data-role="page" data-title="YUG: About">
     	<div data-role="header" data-id="header">

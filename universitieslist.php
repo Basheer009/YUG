@@ -39,57 +39,63 @@ function ConfirmDelete(){
 
 		<div data-role="main" class="ui-content" >
 
-		<table data-role="table" class="ui-responsive" data-mode="columntoggle" id="myTable">
+		<table data-role="table" class="ui-responsive table-stroke" data-mode="columntoggle" id="myTable">
 				<thead>
 					<tr>
-						<th>Name</td>
+						<th>Name</th>
 						<th data-priority="1">Address</th>
 						<th data-priority="2">Contact</th>
 						<th data-priority="3">Desc.</th>
                         <th data-priority="4">Href</th>
+                        <th data-priority="5">City Name</th>
 						<th>Edit</th><th>Delete</th>
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach($universities_list as $university) : ?>
+					<?php foreach($universities_list as $row) : ?>
 						<tr>
 							<td>
-								<?php echo $university["name"]; ?>
+								<?php echo $row["name"]; ?>
 							</td>
 							<td>
-								<?php echo $university["address"]; ?>
+								<?php echo $row["address"]; ?>
 							</td>
 							<td>
-								<?php echo $university["contact"]; ?>
+								<?php echo $row["contact"]; ?>
 							</td>
 							<td>
-								<?php echo $university["de"]; ?>
+								<?php echo $row["de"]; ?>
 							</td>
                             <td>
-								<?php echo $university["href"]; ?>
+								<?php echo $row["href"]; ?>
+							</td>
+                            <td>
+								<?php echo $row["cityname"]; ?>
 							</td>
 							<td>
 								<form method="post" action="universitiesconfig.php">
 									<input type="hidden" name="ci" 
-									value="<?php echo $university["id"]; ?>" />
+									value="<?php echo $row["id"]; ?>" />
 									<input type="hidden" name="action" value="edit" />
-									<input data-ajax="false" type="submit" value="Edit" />
+									<input type="submit" value="Edit" />
 								</form> 
 							</td>
 							<td>
 								<form method="POST" action="universitiesconfig.php" 
 								onSubmit="return ConfirmDelete();">
 									<input type="hidden" name="ci" 
-									value="<?php echo $university["id"]; ?>" />
+									value="<?php echo $row["id"]; ?>" />
 									<input type="hidden" name="action" value="delete" />
 									<input type="submit" value="Delete" />
 								</form>
 							</td>
-						<tr>
+						</tr>
 					<?php endforeach; ?>
 				</tbody>
 			</table><br/>
-			<a href="adduniversities.php" data-ajax="false" class="link-btn">Add University</a>
+			<div align="left">
+			<a href="adduniversities.php" data-ajax="false">Add University</a></div>
+		</div>
 		</div>
 			<div data-role="footer" data-position="fixed" data-id="footer">
         	<div data-role="navbar">

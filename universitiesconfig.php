@@ -1,8 +1,5 @@
-
 <?php
-session_start();
 include '/include/config.php';
-$id = $_SESSION['id'];
 //Insert or  contact information
 if(isset($_POST['action_type']))
 {
@@ -12,8 +9,9 @@ if(isset($_POST['action_type']))
         $name = mysqli_real_escape_string($link, strip_tags($_POST['name']));
         $address = mysqli_real_escape_string($link, strip_tags($_POST['address']));
         $contact = mysqli_real_escape_string($link, strip_tags($_POST['contact']));
-        $desc = mysqli_real_escape_string($link, strip_tags($_POST['de']));
+        $de = mysqli_real_escape_string($link, strip_tags($_POST['de']));
 		$href = mysqli_real_escape_string($link, strip_tags($_POST['href']));
+		$cityname = mysqli_real_escape_string($link, strip_tags($_POST['cityname']));
 
 
                  
@@ -23,15 +21,17 @@ if(isset($_POST['action_type']))
                     name = '$name',
                     address = '$address',
                     contact = '$contact',
-                    de = '$desc',
-					href = '$href'";
+                    de = '$de',
+					href = '$href',
+					cityname = '$cityname'";
         }else{
             $sql = "update universities set
                     name = '$name',
                     address = '$address',
                     contact = '$contact',
-                    de = '$desc',
-					href = '$href'
+                    de = '$de',
+					href = '$href',
+					cityname = '$cityname'
                     where id = '$id'";
         }
          
@@ -48,7 +48,7 @@ $gresult = ''; //declare global variable
 if(isset($_POST["action"]) and $_POST["action"]=="edit"){
     $id = (isset($_POST["ci"])? $_POST["ci"] : '');
     $sql = "select id, name, address,
-            contact, de, href
+            contact, de, href, cityname
             from universities
             where id = '$id'";
  
@@ -85,7 +85,7 @@ if(isset($_POST["action"]) and $_POST["action"]=="delete"){
 //End Delete Contact
 
 //Read contact information from database
-$sql = "select id, name , address , contact, de, href from universities";
+$sql = "select id, name , address , contact, de, href, cityname from universities";
  
 $result = mysqli_query($link, $sql);
  
@@ -102,7 +102,8 @@ while($rows = mysqli_fetch_array($result))
                             'address' => $rows['address'],
                             'contact' => $rows['contact'],
                             'de' => $rows['de'],
-							'href' => $rows['href']);
+							'href' => $rows['href'],
+							'cityname' => $rows['cityname']);
 }
 include 'universitieslist.php';
 exit();

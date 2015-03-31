@@ -38,19 +38,29 @@
 					</tr>
 					<tr>
 						<td>
-							<label for="href">href: </label>
+							<label for="href">Href: </label>
 						</td>
 						<td>
 							<input type="text" name="href" 
 							value="<?php echo (isset($gresult) ? $gresult["href"] :  ''); ?>" 
-							id="lname" class="txt-fld"/>
+							 id="href" class="txt-fld"/>
 						</td>
-					</tr>				
+					</tr>
+					<tr>
+						<td>
+							<label for="idname">id Name: </label>
+						</td>
+						<td>
+							<input type="text" name="idname" 
+							value="<?php echo (isset($gresult) ? $gresult["idname"] :  ''); ?>" 
+							 id="idname" class="txt-fld"/>
+						</td>
+					</tr>
 				</table>
 				<input type="hidden" name="action_type" value="<?php echo (isset($gresult) ? 'edit' :  'add');?>"/>
 				<div style="text-align: center; padding-top: 30px;">
 					<input class="btn" type="submit" name="save" id="save" value="Save" />
-					<input data-ajax="false" onClick="document.location.href='citieslist.php'" class="btn" type="button" name="save"  id="cancel" value="Cancel" />
+					<input data-ajax="false" onClick="document.location.href='citiesconfig.php'" class="btn" type="button" name="cancel"  id="cancel" value="Cancel" />
 				</div>
 			</form>
 			</div>
