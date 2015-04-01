@@ -4,6 +4,8 @@
 	<title>YUG</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
+	<link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
+
 	<link rel="stylesheet" href="_/css/jquery.mobile-1.4.5.min.css" />
 	<script src="_/js/jquery.js"></script>
 	<script src="_/js/jquery.mobile-1.4.5.min.js"></script>
@@ -13,7 +15,7 @@
 	
 </head>
 <body>
-	<div id="login" data-role="page" data-title="YUG: update">
+	<div id="login" data-role="page" data-theme="b" data-title="YUG: update">
 	<div data-role="header" data-position="fixed" data-id="header">
         	<h1>Update</h1>
         </div><!--login header-->
@@ -21,7 +23,7 @@
 			
 			<br/>
 			<div>
-			<form id="frmContact" method="POST" action="citiesconfig.php" 		
+			<form data-ajax="false" id="frmContact" method="POST" action="citiesconfig.php" 		
 					>
 				<input type="hidden" name="id" 
 				value="<?php echo (isset($gresult) ? $gresult["id"] :  ''); ?>" />
@@ -60,11 +62,12 @@
 				<input type="hidden" name="action_type" value="<?php echo (isset($gresult) ? 'edit' :  'add');?>"/>
 				<div style="text-align: center; padding-top: 30px;">
 					<input class="btn" type="submit" name="save" id="save" value="Save" />
-					<input data-ajax="false" onClick="document.location.href='citiesconfig.php'" class="btn" type="button" name="cancel"  id="cancel" value="Cancel" />
+					<input onClick="document.location.href='citiesconfig.php'" class="btn" type="button" name="cancel"  id="cancel" value="Cancel" />
 				</div>
 			</form>
 			</div>
 		</div>
 	</div>
+    <script src="_/js/nativedroid.script.js"></script>
 </body>
 </html>

@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>YUG</title>
+	<title>City - Update</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-	<link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
 
 	<link rel="stylesheet" href="_/css/jquery.mobile-1.4.5.min.css" />
 	<script src="_/js/jquery.js"></script>
@@ -15,7 +13,7 @@
 	
 </head>
 <body>
-	<div id="login" data-role="page" data-theme="b" data-title="YUG: update">
+	<div id="login" data-role="page" data-title="YUG: update">
 	<div data-role="header" data-position="fixed" data-id="header">
         	<h1>Update</h1>
         </div><!--login header-->
@@ -23,80 +21,82 @@
 			
 			<br/>
 			<div>
-			<form id="frmContact" method="POST" data-ajax="false" action="universitiesconfig.php" 		
+			<form id="frmContact" method="POST" action="admin.php" 		
 					>
-				<input type="hidden" name="id" 
+				<input type="hidden" name="ID" 
 				value="<?php echo (isset($gresult) ? $gresult["id"] :  ''); ?>" />
 				<table>
 					<tr>
 						<td>
-							<label for="name">Name: </label>
+							<label for="fname">First Name: </label>
 						</td>
 						<td>
-							<input type="text" name="name" 
+							<input type="text" name="fname" 
 							value="<?php echo (isset($gresult) ? $gresult["name"] :  ''); ?>" 
 							id="fname" class="txt-fld"/>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label for="address">Address: </label>
+							<label for="fname">Last Name: </label>
 						</td>
 						<td>
-							<input type="text" name="address" 
-							value="<?php echo (isset($gresult) ? $gresult["address"] :  ''); ?>" 
+							<input type="text" name="lname" 
+							value="<?php echo (isset($gresult) ? $gresult["username"] :  ''); ?>" 
 							id="lname" class="txt-fld"/>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label for="contact">Contact: </label>
+							<label for="fname">Contact #: </label>
 						</td>
 						<td>
-							<input type="text" name="contact" 
-							value="<?php echo (isset($gresult) ? $gresult["contact"] :  ''); ?>" 
+							<input type="text" name="ContactNo" 
+							value="<?php echo (isset($gresult) ? $gresult["email"] :  ''); ?>" 
 							class="txt-fld"/>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label for="de">Desc: </label>
+							<label for="fname">Res. Address: </label>
 						</td>
 						<td>
-							<textarea rows="5" type="text" name="de" 
-							 id="de" class="txt-fld" ><?php echo (isset($gresult) ? $gresult["de"] :  ''); ?></textarea>
-						</td>
-					</tr>				
-					<tr>
-						<td>
-							<label for="href">Href: </label>
-						</td>
-						<td>
-							<input type="text" name="href" 
-							value="<?php echo (isset($gresult) ? $gresult["href"] :  ''); ?>" 
-							 id="href" class="txt-fld"/>
-						</td>
-					</tr>				
-					<tr>
-						<td>
-							<label for="cityname">City Name: </label>
-						</td>
-						<td>
-							<input type="text" name="cityname" 
-							value="<?php echo (isset($gresult) ? $gresult["cityname"] :  ''); ?>" 
-							 id="cityname" class="txt-fld"/>
+							<input type="text" name="ResAddress" 
+							value="<?php echo (isset($gresult) ? $gresult["password"] :  ''); ?>" 
+							class="txt-fld"/>
 						</td>
 					</tr>
+					<tr>
+						<td>
+							<label for="fname">Company: </label>
+						</td>
+						<td>
+							<input type="text" name="Company" 
+							value="<?php echo (isset($gresult) ? $gresult["href"] :  ''); ?>" 
+							class="txt-fld"/>
+						</td>
+					</tr>
+					
+					
 				</table>
 				<input type="hidden" name="action_type" value="<?php echo (isset($gresult) ? 'edit' :  'add');?>"/>
 				<div style="text-align: center; padding-top: 30px;">
 					<input class="btn" type="submit" name="save" id="save" value="Save" />
-					<input data-ajax="false" onClick="document.location.href='Universitiesconfig.php'" class="btn" type="button" name="cancel"  id="cancel" value="Cancel" />
+					<input class="btn" type="submit" name="save" id="cancel" value="Cancel" 
+					
+					/>
 				</div>
 			</form>
 			</div>
 		</div>
+		<div data-role="footer" data-position="fixed" data-id="footer">
+        	<div data-role="navbar">
+            	<ul>
+                    <li><a href="index.php"  data-role="button" data-icon="home" data-mini="true">Home</a></li>
+                    <li><a href="index.php#about" data-rel="dialog" data-role="button" data-icon="info" data-mini="true">About</a></li>
+                </ul>
+            </div><!--footer navbar-->
+        </div>
 	</div>
-    <script src="_/js/nativedroid.script.js"></script>
 </body>
 </html>

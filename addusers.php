@@ -4,6 +4,8 @@
 	<title>YUG</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
+	<link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
+
 	<link rel="stylesheet" href="_/css/jquery.mobile-1.4.5.min.css" />
 	<script src="_/js/jquery.js"></script>
 	<script src="_/js/jquery.mobile-1.4.5.min.js"></script>
@@ -13,7 +15,7 @@
 	
 </head>
 <body>
-	<div id="login" data-role="page" data-title="YUG: update">
+	<div id="login" data-role="page" data-theme="b" data-title="YUG: update">
 	<div data-role="header" data-position="fixed" data-id="header">
         	<h1>Update</h1>
         </div><!--login header-->
@@ -76,5 +78,6 @@
 			</div>
 		</div>
 	</div>
+    <script src="_/js/nativedroid.script.js"></script>
 </body>
 </html>
